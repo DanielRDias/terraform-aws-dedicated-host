@@ -1,0 +1,2 @@
+instance_type     = "mac1.metal"
+availability_zone = "us-east-1a"
