@@ -2,6 +2,70 @@
 
 Terraform module which creates EC2 dedicated host on AWS. Required for macOS instances (mac1.metal)
 
+## Usage
+
+```hcl
+module "dedicated-host" {
+  source            = "DanielRDias/dedicated-host/aws"
+  version           = "0.1.0"
+  instance_type     = "c5.large"
+  availability_zone = "us-east-1a"
+}
+```
+
+Full example for mac1.metal
+
+```hcl
+provider "aws" {
+  region = "us-east-1"
+}
+
+module "dedicated-host" {
+  source            = "DanielRDias/dedicated-host/aws"
+  version           = "0.1.0"
+  instance_type     = "mac1.metal"
+  availability_zone = "us-east-1a"
+}
+
+resource "aws_instance" "mac" {
+  ami           = data.aws_ami.mac.id
+  instance_type = "mac1.metal"
+  host_id       = module.dedicated-host.dedicated_hosts["HostID"]
+  subnet_id     = "subnet-057cf66f1dc6861e4" # Subnet ID in the same AZ as the dedicated host
+
+  tags = {
+    Name = "Terraform Mac"
+  }
+}
+
+data "aws_ami" "mac" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["amzn-ec2-macos-10.15*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["amazon"]
+}
+
+output "mac_ami" {
+  value = data.aws_ami.mac.id
+}
+
+output "dedicated-host" {
+  value = module.dedicated-host.dedicated_hosts["HostID"]
+}
+```
+
+**Note**: AWS has a limited capacity for dedicated hosts. If terraform times out and fails to create the dedicated host, the cloudformation stack will stay in your account until you do `terraform destroy`.
+Check <https://aws.amazon.com/premiumsupport/knowledge-center/cloudformation-stack-stuck-progress/> for more details.
+
 ## Terraform Docs
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
