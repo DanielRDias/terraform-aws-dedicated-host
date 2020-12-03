@@ -1,4 +1,4 @@
-# Basic Dedicated Host example
+# Amazon Linux Dedicated Host example
 
 Configuration in this directory creates a dedicated host with a amazon linux instance.
 

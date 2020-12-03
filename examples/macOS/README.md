@@ -1,4 +1,4 @@
-# Basic Dedicated Host example
+# Mac OS Catalina Dedicated Host example
 
 Configuration in this directory creates a dedicated host with a mac1.metal instance.
 
@@ -13,6 +13,25 @@ terraform apply
 ```
 
 Note that this example may create resources which can cost money. Run `terraform destroy` when you don't need these resources.
+
+This example uses macOS Catalina 10.15, if you want to use a different OS you can update the `aws_ami` name filter to get a different OS version.
+
+This example would get the AMI for macOS Mojave 10.14
+
+```hcl
+data "aws_ami" "mac" {
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["amzn-ec2-macos-10.14*"]
+  }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+  owners = ["amazon"]
+}
+```
 
 ## Terraform Docs
 
