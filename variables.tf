@@ -19,3 +19,9 @@ variable "host_recovery" {
   type        = string
   default     = "off"
 }
+
+variable "cf_stack_name" {
+  description = "Dedicated host CloudFormation stack name. It can include letters (A-Z and a-z), numbers (0-9), and dashes (-)."
+  type        = string
+  default     = "dedicated-hosts-stack"
+}

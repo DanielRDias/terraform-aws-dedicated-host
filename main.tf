@@ -1,5 +1,5 @@
 resource "aws_cloudformation_stack" "dedicated_hosts" {
-  name = "dedicated-hosts-stack"
+  name = var.cf_stack_name
 
   template_body = <<STACK
 {
