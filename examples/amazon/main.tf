@@ -12,8 +12,8 @@ module "dedicated-host" {
 resource "aws_instance" "amazon" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = "c5.large"
-  host_id       = module.dedicated-host.dedicated_hosts["HostID"]
-  subnet_id     = "subnet-058cf69f1cc6662e4" # Subnet ID in the same AZ as the dedicated host
+  host_id       = module.dedicated-host.dedicated_host_id
+  subnet_id     = "subnet-xxx" # Subnet ID in the same AZ as the dedicated host
 
   tags = {
     Name = "Terraform Amazon Linux"
@@ -46,6 +46,6 @@ output "amazon_linux_ami" {
   value = data.aws_ami.amazon_linux.id
 }
 
-output "dedicated-host" {
-  value = module.dedicated-host.dedicated_hosts["HostID"]
+output "dedicated_host_id" {
+  value = module.dedicated-host.dedicated_host_id
 }

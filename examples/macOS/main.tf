@@ -12,8 +12,8 @@ module "dedicated-host" {
 resource "aws_instance" "mac" {
   ami           = data.aws_ami.mac.id
   instance_type = "mac1.metal"
-  host_id       = module.dedicated-host.dedicated_hosts["HostID"]
-  subnet_id     = "subnet-xxxx" # Subnet ID in the same AZ as the dedicated host
+  host_id       = module.dedicated-host.dedicated_host_id
+  subnet_id     = "subnet-xxx" # Subnet ID in the same AZ as the dedicated host
 
   tags = {
     Name = "Terraform Mac"
@@ -40,6 +40,6 @@ output "mac_ami" {
   value = data.aws_ami.mac.id
 }
 
-output "dedicated-host" {
-  value = module.dedicated-host.dedicated_hosts["HostID"]
+output "dedicated_host_id" {
+  value = module.dedicated-host.dedicated_host_id
 }

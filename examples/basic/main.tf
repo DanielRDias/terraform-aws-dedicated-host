@@ -9,7 +9,7 @@ module "dedicated-host" {
   cf_stack_name     = "basic-stack"
 }
 
-output "dedicated-host" {
+output "dedicated_host_id" {
   description = "Dedicated Host ID"
-  value       = module.dedicated-host.dedicated_hosts["HostID"]
+  value       = module.dedicated-host.dedicated_host_id
 }
