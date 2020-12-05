@@ -102,4 +102,5 @@ No requirements.
 | cf\_stack\_id | Cloud Formation Stack ID |
 | dedicated\_host\_id | Dedicated Host ID |
 | dedicated\_hosts | Maps with the dedicated hosts IDs |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
