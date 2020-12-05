@@ -106,6 +106,6 @@ No input.
 
 | Name | Description |
 |------|-------------|
-| dedicated-host | n/a |
+| dedicated\_host\_id | n/a |
 | mac\_ami | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

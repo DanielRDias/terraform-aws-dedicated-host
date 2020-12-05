@@ -94,5 +94,5 @@ No input.
 | Name | Description |
 |------|-------------|
 | amazon\_linux\_ami | n/a |
-| dedicated-host | n/a |
+| dedicated\_host\_id | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

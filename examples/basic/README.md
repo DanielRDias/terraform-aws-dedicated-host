@@ -54,5 +54,5 @@ No input.
 
 | Name | Description |
 |------|-------------|
-| dedicated-host | Dedicated Host ID |
+| dedicated\_host\_id | Dedicated Host ID |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
