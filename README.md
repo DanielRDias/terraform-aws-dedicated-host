@@ -1,4 +1,4 @@
-# terraform-aws-dedicated-host
+# Terraform AWS Dedicated Host Module
 
 Terraform module which creates EC2 dedicated host on AWS. Required for macOS instances (mac1.metal)
 
@@ -7,7 +7,7 @@ Terraform module which creates EC2 dedicated host on AWS. Required for macOS ins
 ```hcl
 module "dedicated-host" {
   source            = "DanielRDias/dedicated-host/aws"
-  version           = "0.2.0"
+  version           = "0.2.1"
   instance_type     = "c5.large"
   availability_zone = "us-east-1a"
 }
@@ -22,7 +22,7 @@ provider "aws" {
 
 module "dedicated-host" {
   source            = "DanielRDias/dedicated-host/aws"
-  version           = "0.2.0"
+  version           = "0.2.1"
   instance_type     = "mac1.metal"
   availability_zone = "us-east-1a"
 }
@@ -65,7 +65,6 @@ output "dedicated-host" {
 
 **Note**: AWS has a limited capacity for dedicated hosts. If terraform times out and fails to create the dedicated host, the cloudformation stack will stay in your account until you do `terraform destroy`.
 Check <https://aws.amazon.com/premiumsupport/knowledge-center/cloudformation-stack-stuck-progress/> for more details.
-
 
 ## Examples
 
