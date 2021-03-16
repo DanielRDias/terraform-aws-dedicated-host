@@ -10,6 +10,10 @@ module "dedicated-host" {
   version           = "0.2.1"
   instance_type     = "c5.large"
   availability_zone = "us-east-1a"
+
+  tags = {
+    Name = "Terraform Mac"
+  }
 }
 ```
 
@@ -25,6 +29,16 @@ module "dedicated-host" {
   version           = "0.2.1"
   instance_type     = "mac1.metal"
   availability_zone = "us-east-1a"
+
+  tags = {
+    Name = "Terraform Mac"
+  }
+}
+
+resource "aws_ec2_tag" "mac" {
+  resource_id = module.dedicated-host.dedicated_hosts["HostID"]
+  key         = "Name"
+  value       = "Terraform Mac"
 }
 
 resource "aws_instance" "mac" {
@@ -94,6 +108,7 @@ No requirements.
 | cf\_stack\_name | Dedicated host CloudFormation stack name. It can include letters (A-Z and a-z), numbers (0-9), and dashes (-). | `string` | `"dedicated-hosts-stack"` | no |
 | host\_recovery | Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default. | `string` | `"off"` | no |
 | instance\_type | Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. | `string` | n/a | yes |
+| tags | A list of tags to associate with the CloudFormation stack. Does not propagate to the Dedicated Host. | `map(string)` | n/a | no |
 
 ## Outputs
 
