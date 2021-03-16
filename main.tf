@@ -1,5 +1,6 @@
 resource "aws_cloudformation_stack" "dedicated_hosts" {
   name = var.cf_stack_name
+  tags = var.tags
 
   template_body = <<STACK
 {
@@ -16,7 +17,7 @@ resource "aws_cloudformation_stack" "dedicated_hosts" {
   },
   "Outputs" : {
     "HostID" : {
-      "Description": "Host ID",  
+      "Description": "Host ID",
       "Value" : { "Ref" : "MyDedicatedHost" }
     }
   }

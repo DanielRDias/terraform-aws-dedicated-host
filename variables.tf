@@ -25,3 +25,9 @@ variable "cf_stack_name" {
   type        = string
   default     = "dedicated-hosts-stack"
 }
+
+variable "tags" {
+  description = "(Optional) A list of tags to associate with the CloudFormation stack. Does not propagate to the Dedicated Host."
+  type        = map(string)
+  default     = null
+}
