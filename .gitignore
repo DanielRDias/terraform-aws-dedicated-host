@@ -1,3 +1,9 @@
+# System files
+.DS_Store
+
+# Node
+node_modules
+
 # Local .terraform directories
 **/.terraform/*
 
