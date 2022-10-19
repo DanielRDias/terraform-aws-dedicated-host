@@ -6,14 +6,14 @@ Configuration in this directory creates a dedicated host with a mac1.metal insta
 
 ``` hcl
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-central-1"
 }
 
 module "dedicated-host" {
   source            = "DanielRDias/dedicated-host/aws"
-  version           = "0.3.0"
+  version           = "0.3.1"
   instance_type     = "mac1.metal"
-  availability_zone = "us-east-1a"
+  availability_zone = "eu-central-1a"
   cf_stack_name     = "mac-stack"
 }
 
@@ -33,7 +33,7 @@ data "aws_ami" "mac" {
 
   filter {
     name   = "name"
-    values = ["amzn-ec2-macos-10.15*"]
+    values = ["amzn-ec2-macos-12*"]
   }
 
   filter {
