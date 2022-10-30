@@ -11,8 +11,8 @@ provider "aws" {
 
 module "dedicated-host" {
   source            = "DanielRDias/dedicated-host/aws"
-  version           = "0.3.1"
-  instance_type     = "c5.large"
+  version           = "1.0.0"
+  instance_type     = "t3.nano"
   availability_zone = "us-east-1a"
   cf_stack_name     = "basic-stack"
 }
@@ -37,22 +37,32 @@ Note that this example may create resources which can cost money. Run `terraform
 
 ## Terraform Docs
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 No requirements.
 
 ## Providers
 
-No provider.
+No providers.
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_dedicated-host"></a> [dedicated-host](#module\_dedicated-host) | ../../ | n/a |
+
+## Resources
+
+No resources.
 
 ## Inputs
 
-No input.
+No inputs.
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| dedicated\_host\_id | Dedicated Host ID |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| <a name="output_dedicated_host_id"></a> [dedicated\_host\_id](#output\_dedicated\_host\_id) | Dedicated Host ID |
+<!-- END_TF_DOCS -->
