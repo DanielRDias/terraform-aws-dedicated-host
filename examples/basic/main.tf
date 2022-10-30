@@ -4,7 +4,7 @@ provider "aws" {
 
 module "dedicated-host" {
   source            = "../../"
-  instance_type     = "c5.large"
+  instance_type     = "t3.nano"
   availability_zone = "us-east-1a"
   cf_stack_name     = "basic-stack"
 }

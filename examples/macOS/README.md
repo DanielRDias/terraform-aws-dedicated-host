@@ -11,10 +11,9 @@ provider "aws" {
 
 module "dedicated-host" {
   source            = "DanielRDias/dedicated-host/aws"
-  version           = "0.3.1"
+  version           = "1.0.0"
   instance_type     = "mac1.metal"
   availability_zone = "eu-central-1a"
-  cf_stack_name     = "mac-stack"
 }
 
 resource "aws_instance" "mac" {
@@ -87,7 +86,7 @@ data "aws_ami" "mac" {
 
 ## Terraform Docs
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 No requirements.
@@ -96,16 +95,29 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.35.0 |
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_dedicated-host"></a> [dedicated-host](#module\_dedicated-host) | ../../ | n/a |
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_instance.mac](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
+| [aws_ami.mac](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
 
 ## Inputs
 
-No input.
+No inputs.
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| dedicated\_host\_id | n/a |
-| mac\_ami | n/a |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| <a name="output_dedicated_host_id"></a> [dedicated\_host\_id](#output\_dedicated\_host\_id) | n/a |
+| <a name="output_mac_ami"></a> [mac\_ami](#output\_mac\_ami) | n/a |
+<!-- END_TF_DOCS -->
