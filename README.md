@@ -26,7 +26,7 @@ provider "aws" {
 
 module "dedicated-host" {
   source            = "DanielRDias/dedicated-host/aws"
-  version           = "0.3.1"
+  version           = "1.0.0"
   instance_type     = "mac1.metal"
   availability_zone = "us-east-1c"
 
