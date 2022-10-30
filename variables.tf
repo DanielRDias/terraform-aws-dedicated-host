@@ -34,7 +34,7 @@ variable "outpost_arn" {
 }
 
 variable "tags" {
-  description = "(Optional) A list of tags to associate with the CloudFormation stack. Does not propagate to the Dedicated Host."
+  description = "(Optional) A list of tags to associate with the module."
   type        = map(string)
   default     = null
 }
