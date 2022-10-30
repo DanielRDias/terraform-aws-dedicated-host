@@ -26,9 +26,9 @@ provider "aws" {
 
 module "dedicated-host" {
   source            = "DanielRDias/dedicated-host/aws"
-  version           = "0.2.1"
+  version           = "0.3.1"
   instance_type     = "mac1.metal"
-  availability_zone = "us-east-1a"
+  availability_zone = "us-east-1c"
 
   tags = {
     Name = "Terraform Mac"
@@ -57,7 +57,7 @@ data "aws_ami" "mac" {
 
   filter {
     name   = "name"
-    values = ["amzn-ec2-macos-10.15*"]
+    values = ["amzn-ec2-macos-12.*"]
   }
 
   filter {
